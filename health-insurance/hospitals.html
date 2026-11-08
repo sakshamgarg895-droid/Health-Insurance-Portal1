@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hospitals | HealthSecure</title><meta name="description" content="HealthSecure modern health insurance management demo"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner"><a class="brand" href="index.html">Health<span>Secure</span></a><button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+        <nav class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="plans.html">Plans</a><a href="compare.html">Compare</a><a href="hospitals.html">Hospitals</a><a href="calculator.html">Calculator</a><a href="claims.html">Claims</a><a href="contact.html">Contact</a><a href="login.html">Login</a><a class="btn btn-primary" href="calculator.html">Get a Quote</a><button class="btn btn-secondary theme-toggle">☾</button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container page-head"><span class="eyebrow">Hospital Finder</span>
+        <h1>Find a hospital
+        </h1>
+        <p class="muted">Search the sample network by hospital name, city or speciality.
+        </p>
+      </div>
+      <section>
+        <div class="container">
+          <div class="search-row"><input id="hs" placeholder="Hospital name"><input id="hc" placeholder="City"><input id="hsp" placeholder="Speciality"><select id="cash"><option value="all">All hospitals</option><option value="yes">Cashless only</option></select>
+          </div>
+          <div class="grid-3" id="hospitalGrid">
+            <div class="card hospital-card" data-name="citycare multispeciality hospital" data-city="jaipur" data-speciality="cardiology, orthopedics">
+              <div class="hospital-icon"><i class="fa-solid fa-hospital"></i>
+              </div>
+              <h3>CityCare Multispeciality Hospital
+              </h3>
+              <p class="muted">MG Road, Jaipur
+              </p>
+              <div class="chips"><span class="chip">Jaipur</span><span class="chip">Cardiology, Orthopedics</span>
+              </div>
+<span class="badge success">Cashless Available</span><button class="btn btn-secondary hospital-detail">View Details</button>
+            </div>
+            <div class="card hospital-card" data-name="lifespring hospital" data-city="delhi" data-speciality="oncology, neurology">
+              <div class="hospital-icon"><i class="fa-solid fa-hospital"></i>
+              </div>
+              <h3>LifeSpring Hospital
+              </h3>
+              <p class="muted">Civil Lines, Delhi
+              </p>
+              <div class="chips"><span class="chip">Delhi</span><span class="chip">Oncology, Neurology</span>
+              </div>
+<span class="badge success">Cashless Available</span><button class="btn btn-secondary hospital-detail">View Details</button>
+            </div>
+            <div class="card hospital-card" data-name="wellness heart institute" data-city="mumbai" data-speciality="cardiology">
+              <div class="hospital-icon"><i class="fa-solid fa-hospital"></i>
+              </div>
+              <h3>Wellness Heart Institute
+              </h3>
+              <p class="muted">Bandra West, Mumbai
+              </p>
+              <div class="chips"><span class="chip">Mumbai</span><span class="chip">Cardiology</span>
+              </div>
+<span class="badge success">Cashless Available</span><button class="btn btn-secondary hospital-detail">View Details</button>
+            </div>
+            <div class="card hospital-card" data-name="green valley medical center" data-city="pune" data-speciality="maternity, pediatrics">
+              <div class="hospital-icon"><i class="fa-solid fa-hospital"></i>
+              </div>
+              <h3>Green Valley Medical Center
+              </h3>
+              <p class="muted">Kothrud, Pune
+              </p>
+              <div class="chips"><span class="chip">Pune</span><span class="chip">Maternity, Pediatrics</span>
+              </div>
+<span class="badge warning">Reimbursement</span><button class="btn btn-secondary hospital-detail">View Details</button>
+            </div>
+            <div class="card hospital-card" data-name="sunrise super specialty" data-city="hyderabad" data-speciality="orthopedics, oncology">
+              <div class="hospital-icon"><i class="fa-solid fa-hospital"></i>
+              </div>
+              <h3>Sunrise Super Specialty
+              </h3>
+              <p class="muted">Banjara Hills, Hyderabad
+              </p>
+              <div class="chips"><span class="chip">Hyderabad</span><span class="chip">Orthopedics, Oncology</span>
+              </div>
+<span class="badge success">Cashless Available</span><button class="btn btn-secondary hospital-detail">View Details</button>
+            </div>
+            <div class="card hospital-card" data-name="careplus hospital" data-city="kolkata" data-speciality="general medicine, surgery">
+              <div class="hospital-icon"><i class="fa-solid fa-hospital"></i>
+              </div>
+              <h3>CarePlus Hospital
+              </h3>
+              <p class="muted">Salt Lake, Kolkata
+              </p>
+              <div class="chips"><span class="chip">Kolkata</span><span class="chip">General Medicine, Surgery</span>
+              </div>
+<span class="badge success">Cashless Available</span><button class="btn btn-secondary hospital-detail">View Details</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>HealthSecure
+          </h3>
+          <p>Modern health insurance management for a professional frontend project.
+          </p>
+          <p>Demo only — no real insurance, payment, authentication or AI service is connected.
+          </p>
+        </div>
+        <div>
+          <h4>Explore
+          </h4>
+          <p><a href="plans.html">Plans</a>
+          </p>
+          <p><a href="hospitals.html">Hospitals</a>
+          </p>
+          <p><a href="calculator.html">Calculator</a>
+          </p>
+        </div>
+        <div>
+          <h4>Manage
+          </h4>
+          <p><a href="dashboard.html">Dashboard</a>
+          </p>
+          <p><a href="policies.html">Policies</a>
+          </p>
+          <p><a href="payments.html">Payments</a>
+          </p>
+        </div>
+        <div>
+          <h4>Support
+          </h4>
+          <p><a href="claims.html">Claims</a>
+          </p>
+          <p><a href="contact.html">Contact</a>
+          </p>
+          <p><a href="admin.html">Admin Demo</a>
+          </p>
+        </div>
+      </div>
+      <div class="container footer-credit" style="margin-top:25px;border-top:1px solid #29415d;padding-top:16px">
+        <div>© 2026 HealthSecure. Academic/demo project.
+        </div>
+        <div class="created-by">Created By Saksham Garg
+        </div>
+      </div>
+    </footer>
+    <div id="toast" class="toast">
+    </div>
+<button class="backtop">↑</button><script src="js/main.js"></script><script src="js/hospitals.js"></script>
+  </body>
+</html>

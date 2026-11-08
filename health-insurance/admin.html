@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin | HealthSecure</title><meta name="description" content="HealthSecure modern health insurance management demo"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="css/style.css?v=admin-layout-20261106"><link rel="stylesheet" href="css/responsive.css?v=admin-layout-20261106"><style>
+.admin-dashboard{grid-template-columns:225px minmax(0,1fr);align-items:start}.admin-dashboard>section{min-width:0}
+@media(max-width:1050px){.admin-dashboard{display:block!important}.admin-dashboard .sidebar{position:static;margin:0 0 18px;padding:14px 16px;overflow:hidden}.admin-dashboard .sidebar h3{margin:0 0 10px}.admin-dashboard .side-links{display:flex!important;flex-wrap:nowrap;gap:6px;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:6px}.admin-dashboard .side-links a{flex:0 0 auto;white-space:nowrap;padding:8px 11px}.admin-dashboard>section{width:100%;min-width:0}.admin-dashboard .dash-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.admin-dashboard .dash-grid{grid-template-columns:1fr}.admin-dashboard .page-head{padding:20px 0}.admin-dashboard .table{min-width:680px}}
+</style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner"><a class="brand" href="index.html">Health<span>Secure</span></a><button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+        <nav class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="plans.html">Plans</a><a href="compare.html">Compare</a><a href="#hospitalManagement">Hospitals</a><a href="calculator.html">Calculator</a><a href="claims.html">Claims</a><a href="contact.html">Contact</a><a href="login.html">Login</a><a class="btn btn-primary" href="calculator.html">Get a Quote</a><button class="btn btn-secondary theme-toggle">☾</button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container dashboard admin-dashboard">
+        <aside class="card sidebar">
+          <h3>Admin Portal
+          </h3>
+          <div class="side-links"><a class="active" href="admin.html">Dashboard</a><a href="#users">Users</a><a href="plans.html">Insurance Plans</a><a href="#policies">Policies</a><a href="#claims">Claims</a><a href="#hospitalManagement">Hospitals</a><a href="#paymentManagement">Payments</a><a href="#reports">Reports</a><a href="#settings">Settings</a><a href="#" onclick="logoutDemo();return false">Logout</a>
+          </div>
+        </aside>
+        <section>
+          <div class="page-head"><span class="eyebrow">Admin Dashboard</span>
+            <h1>Operations overview
+            </h1>
+            <p class="muted">Browser demo admin workspace. Changes stay in this browser and are not protected by real admin authentication.
+            </p>
+          </div>
+          <div class="dash-grid">
+            <div class="card"><strong>Total Users</strong>
+              <h2 id="adminUserCount">0
+              </h2>
+            </div>
+            <div class="card"><strong>Active Policies (sample)</strong>
+              <h2>9,842
+              </h2>
+            </div>
+            <div class="card"><strong>Pending Claims</strong>
+              <h2 id="adminPendingClaims">0
+              </h2>
+            </div>
+            <div class="card"><strong>Approved Claims</strong>
+              <h2 id="adminApprovedClaims">0
+              </h2>
+            </div>
+            <div class="card"><strong>Recorded Payments</strong>
+              <h2 id="adminRevenue">₹0
+              </h2>
+            </div>
+          </div>
+          <div class="card" id="users" style="margin-top:20px">
+            <div class="actions" style="justify-content:space-between">
+              <h2>User Management
+              </h2>
+            </div>
+            <form id="adminUserForm" class="form-grid admin-user-form"><input type="hidden" name="userId">
+              <div class="field"><label for="adminName">Name</label><input id="adminName" name="name" maxlength="100" required>
+              </div>
+              <div class="field"><label for="adminEmail">Email</label><input id="adminEmail" name="email" type="email" maxlength="150" required>
+              </div>
+              <div class="field"><label for="adminPhone">Phone</label><input id="adminPhone" name="phone" maxlength="20">
+              </div>
+              <div class="field"><label for="adminRole">Role</label><select id="adminRole" name="role"><option>User</option><option>Admin</option></select>
+              </div>
+              <div class="field"><label for="adminStatus">Account status</label><select id="adminStatus" name="status"><option>Active</option><option>Disabled</option></select>
+              </div>
+              <div class="actions admin-user-actions"><button id="adminUserSubmit" class="btn btn-primary" type="submit">Add User</button><button id="adminUserCancel" class="btn btn-secondary" type="button">Clear</button>
+              </div>
+            </form>
+            <p id="adminUserStatus" class="muted" role="status" aria-live="polite">
+            </p>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID
+                    </th>
+                    <th>Name
+                    </th>
+                    <th>Email
+                    </th>
+                    <th>Phone
+                    </th>
+                    <th>Role
+                    </th>
+                    <th>Status
+                    </th>
+                    <th>Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="adminUsers">
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="admin-sections-stack">
+            <div class="card" id="claims">
+              <h2>Claims queue
+              </h2>
+              <p class="muted">Update a demo claim status here; it will be visible on the Claims page in this browser.
+              </p>
+              <p id="adminClaimStatus" class="muted" role="status" aria-live="polite">
+              </p>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Claim
+                      </th>
+                      <th>Policy
+                      </th>
+                      <th>Hospital
+                      </th>
+                      <th>Amount
+                      </th>
+                      <th>Demo status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminClaims">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card" id="hospitalManagement">
+              <h2>Hospital management
+              </h2>
+              <p class="muted">Add sample directory entries. Changes are saved in this browser.
+              </p>
+              <form id="hospitalForm" class="form-grid admin-hospital-form">
+                <div class="field"><label for="hospitalNameAdmin">Hospital name</label><input id="hospitalNameAdmin" name="name" maxlength="120" required>
+                </div>
+                <div class="field"><label for="hospitalAddressAdmin">Address / locality</label><input id="hospitalAddressAdmin" name="address" maxlength="200" required>
+                </div>
+                <div class="field"><label for="hospitalCityAdmin">City</label><input id="hospitalCityAdmin" name="city" maxlength="80" required>
+                </div>
+                <div class="field"><label for="hospitalSpecialtiesAdmin">Specialties</label><input id="hospitalSpecialtiesAdmin" name="specialties" placeholder="Cardiology, Pediatrics" maxlength="250" required>
+                </div>
+                <div class="field"><label for="hospitalPhoneAdmin">Phone (sample)</label><input id="hospitalPhoneAdmin" name="phone" maxlength="30">
+                </div>
+                <div class="field"><label for="hospitalHoursAdmin">Hours</label><input id="hospitalHoursAdmin" name="hours" maxlength="120" placeholder="Emergency: 24 hours">
+                </div>
+                <div class="field"><label for="hospitalNetworkAdmin">Network access</label><select id="hospitalNetworkAdmin" name="network"><option>Cashless Available</option><option>Reimbursement</option></select>
+                </div>
+                <div class="field"><label for="hospitalConsultationAdmin">Sample consultation price</label><input id="hospitalConsultationAdmin" name="consultation" maxlength="60" placeholder="₹500–₹900">
+                </div>
+                <div class="field"><label for="hospitalDiscountAdmin">Sample discount</label><input id="hospitalDiscountAdmin" name="discount" maxlength="160">
+                </div>
+                <div class="field"><label for="hospitalServicesAdmin">Services / features</label><input id="hospitalServicesAdmin" name="features" maxlength="250">
+                </div>
+                <div class="field full"><button class="btn btn-primary" type="submit">Add Hospital</button>
+                </div>
+              </form>
+              <p id="hospitalAdminStatus" class="muted" role="status" aria-live="polite">
+              </p>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Hospital
+                      </th>
+                      <th>City
+                      </th>
+                      <th>Network
+                      </th>
+                      <th>Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminHospitals">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card" id="paymentManagement">
+              <h2>Payment management</h2>
+              <p class="muted">Add a sample ledger entry. This does not process or collect money.</p>
+              <form id="paymentForm" class="form-grid admin-hospital-form">
+                <div class="field"><label for="paymentPolicy">Policy number</label><input id="paymentPolicy" name="policy" maxlength="40" required></div>
+                <div class="field"><label for="paymentAmount">Amount (₹)</label><input id="paymentAmount" name="amount" type="number" min="1" step="0.01" required></div>
+                <div class="field"><label for="paymentDate">Payment date</label><input id="paymentDate" name="date" type="date" required></div>
+                <div class="field"><label for="paymentMethod">Method</label><select id="paymentMethod" name="method"><option>UPI</option><option>Card</option><option>Bank Transfer</option><option>Cash</option></select></div>
+                <div class="field"><label for="paymentStatus">Status</label><select id="paymentStatus" name="status"><option>Paid</option><option>Pending</option><option>Failed</option></select></div>
+                <div class="field full"><button class="btn btn-primary" type="submit">Add Payment Record</button></div>
+              </form>
+              <p id="paymentAdminStatus" class="muted" role="status" aria-live="polite"></p>
+              <div class="table-wrap"><table class="table"><thead><tr><th>Transaction</th><th>Policy</th><th>Amount</th><th>Date</th><th>Method</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminPayments"></tbody></table></div>
+            </div>
+            <div class="card" id="reports">
+              <div class="actions report-heading"><div><h2>Reports &amp; analytics</h2><p class="muted">Summary of demo records stored in this browser.</p></div><button id="downloadAdminReport" class="btn btn-primary" type="button">Download CSV Report</button></div>
+              <div class="dash-grid report-metrics">
+                <div class="stat"><strong id="reportUsers">0</strong><span>Users</span></div>
+                <div class="stat"><strong id="reportHospitals">0</strong><span>Added hospitals</span></div>
+                <div class="stat"><strong id="reportClaims">0</strong><span>Claims</span></div>
+                <div class="stat"><strong id="reportPayments">₹0</strong><span>Paid payment records</span></div>
+              </div>
+              <div class="grid-2 report-tables">
+                <div><h3>Claims by status</h3><div class="table-wrap"><table class="table"><thead><tr><th>Status</th><th>Count</th></tr></thead><tbody id="reportClaimRows"></tbody></table></div></div>
+                <div><h3>Payments by status</h3><div class="table-wrap"><table class="table"><thead><tr><th>Status</th><th>Count</th><th>Total</th></tr></thead><tbody id="reportPaymentRows"></tbody></table></div></div>
+              </div>
+              <p id="reportStatus" class="muted" role="status" aria-live="polite"></p>
+            </div>
+            <div class="card" id="settings">
+              <h2>Portal settings</h2>
+              <p class="muted">These settings are saved in this browser and applied to the demo pages.</p>
+              <form id="portalSettingsForm" class="form-grid admin-user-form">
+                <div class="field"><label for="portalNameSetting">Portal name</label><input id="portalNameSetting" name="portalName" maxlength="60" required></div>
+                <div class="field"><label for="supportEmailSetting">Support email</label><input id="supportEmailSetting" name="supportEmail" type="email" maxlength="150" required></div>
+                <div class="field"><label for="themeSetting">Default appearance</label><select id="themeSetting" name="theme"><option value="light">Light</option><option value="dark">Dark</option></select></div>
+                <div class="actions admin-user-actions"><button class="btn btn-primary" type="submit">Save Settings</button><button id="resetPortalSettings" class="btn btn-secondary" type="button">Restore Defaults</button></div>
+              </form>
+              <p id="portalSettingsStatus" class="muted" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>HealthSecure
+          </h3>
+          <p>Modern health insurance management for a professional frontend project.
+          </p>
+          <p>Demo only — no real insurance, payment, authentication or AI service is connected.
+          </p>
+        </div>
+        <div>
+          <h4>Explore
+          </h4>
+          <p><a href="plans.html">Plans</a>
+          </p>
+          <p><a href="#hospitalManagement">Hospitals</a>
+          </p>
+          <p><a href="calculator.html">Calculator</a>
+          </p>
+        </div>
+        <div>
+          <h4>Manage
+          </h4>
+          <p><a href="dashboard.html">Dashboard</a>
+          </p>
+          <p><a href="policies.html">Policies</a>
+          </p>
+          <p><a href="payments.html">Payments</a>
+          </p>
+        </div>
+        <div>
+          <h4>Support
+          </h4>
+          <p><a href="claims.html">Claims</a>
+          </p>
+          <p><a href="contact.html">Contact</a>
+          </p>
+          <p><a href="admin.html">Admin Demo</a>
+          </p>
+        </div>
+      </div>
+      <div class="container footer-credit" style="margin-top:25px;border-top:1px solid #29415d;padding-top:16px">
+        <div>© 2026 HealthSecure. Academic/demo project.
+        </div>
+        <div class="created-by">Created By Saksham Garg
+        </div>
+      </div>
+    </footer>
+    <div id="toast" class="toast">
+    </div>
+<button class="backtop">↑</button><script src="js/main.js"></script><script src="js/auth.js"></script><script src="js/admin.js"></script>
+  </body>
+</html>
