@@ -1,4 +1,4 @@
-# Health Insurance Portal API
+# Health Insurance Portal
 
 Spring Boot API for the educational health insurance portal. The database and
 plan records are sample data; this is not a real insurance service.
